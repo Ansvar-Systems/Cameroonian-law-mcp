@@ -1,20 +1,21 @@
 /**
- * Cameroon Law HTML/Text Parser
+ * Cameroon Law Text Parser (PDF + HTML)
  *
  * Parses French-language legislation from Cameroonian legal portals.
  * Cameroon is bilingual (French/English) but most legislation is in French.
  *
- * Handles common French legislative text structures:
- *   - Articles: "Article N" or "Art. N"
+ * Handles French legislative text structures:
+ *   - Articles: "Article N", "Art. N", "ARTICLE N :", "ARTICLE PREMIER"
  *   - Chapters: "Chapitre N" or "CHAPITRE PREMIER"
  *   - Titles: "Titre N" or "TITRE PREMIER"
  *   - Sections: "Section N"
+ *   - Parts/Books: "Partie N" / "Livre N"
  *
- * Also handles English-format provisions:
+ * Also handles English-format provisions common in bilingual texts:
  *   - "Section N" (as article-level divisions)
  *   - "Part N"
  *
- * Source: droitcamerounais.info / africa-laws.org / minjustice.gov.cm
+ * Source: droitcamerounais.info / africa-laws.org (PDFs via pdftotext)
  */
 
 export interface ActIndexEntry {
@@ -64,7 +65,7 @@ export interface ParsedAct {
 
 const FRENCH_ORDINALS: Record<string, number> = {
   premier: 1, premiere: 1, 'premi\u00e8re': 1,
-  deuxieme: 2, 'deuxi\u00e8me': 2, second: 2,
+  deuxieme: 2, 'deuxi\u00e8me': 2, second: 2, seconde: 2,
   troisieme: 3, 'troisi\u00e8me': 3,
   quatrieme: 4, 'quatri\u00e8me': 4,
   cinquieme: 5, 'cinqui\u00e8me': 5,
@@ -73,6 +74,9 @@ const FRENCH_ORDINALS: Record<string, number> = {
   huitieme: 8, 'huiti\u00e8me': 8,
   neuvieme: 9, 'neuvi\u00e8me': 9,
   dixieme: 10, 'dixi\u00e8me': 10,
+  onzieme: 11, 'onzi\u00e8me': 11,
+  douzieme: 12, 'douzi\u00e8me': 12,
+  unique: 1,
 };
 
 function parseFrenchOrdinal(word: string): number | null {
@@ -107,10 +111,25 @@ function normalizeWhitespace(text: string): string {
 
 /* ---------- Pattern matching ---------- */
 
-const ARTICLE_PATTERN = /^(?:Article|Art\.?)\s+(\d+(?:\s*(?:bis|ter|quater|quinquies|sexies|septies|octies|novies|decies))?(?:\s*-\s*\d+)?|premier|premi\u00e8re)\s*(?:[.:\-\u2013\u2014])?\s*(.*)/i;
-const CHAPTER_PATTERN = /^(?:CHAPITRE|Chapitre)\s+([IVXLCDM]+|\d+(?:\s*er)?|premier|premi\u00e8re|[a-z\u00e0-\u00ff]+)\s*(?:[.:\-\u2013\u2014])?\s*(.*)/i;
-const TITLE_PATTERN = /^(?:TITRE|Titre)\s+([IVXLCDM]+|\d+(?:\s*er)?|premier|premi\u00e8re|[a-z\u00e0-\u00ff]+)\s*(?:[.:\-\u2013\u2014])?\s*(.*)/i;
-const SECTION_PATTERN = /^(?:SECTION|Section)\s+(\d+(?:\s*(?:\u00e8re|re))?|premi\u00e8re|[a-z\u00e0-\u00ff]+)\s*(?:[.:\-\u2013\u2014])?\s*(.*)/i;
+// Article patterns (all caps and mixed case):
+// "ARTICLE 5 :", "ARTICLE PREMIER :", "Article 5", "Art. 5", "Article 5.-", "Article premier"
+const ARTICLE_PATTERN = /^(?:ARTICLE|Article|Art\.?)\s+(\d+(?:\s*(?:bis|ter|quater|quinquies|sexies|septies|octies|novies|decies))?(?:\s*-\s*\d+)?|premier|premi[eè]re|PREMIER|PREMIERE|unique|UNIQUE)\s*(?:[.:\-–—]|\.-)?\s*(.*)/i;
+
+// Chapter patterns
+const CHAPTER_PATTERN = /^(?:CHAPITRE|Chapitre)\s+([IVXLCDM]+|\d+(?:\s*(?:er|ER))?|premier|premi[eè]re|PREMIER|[a-z\u00e0-\u00ff]+)\s*(?:[.:\-–—]|\.-)?\s*(.*)/i;
+
+// Title patterns (Titre)
+const TITLE_PATTERN = /^(?:TITRE|Titre)\s+([IVXLCDM]+|\d+(?:\s*(?:er|ER))?|premier|premi[eè]re|PREMIER|[a-z\u00e0-\u00ff]+)\s*(?:[.:\-–—]|\.-)?\s*(.*)/i;
+
+// Section patterns
+const SECTION_PATTERN = /^(?:SECTION|Section)\s+(\d+(?:\s*(?:[eè]re|re|RE))?|premi[eè]re|PREMIERE|[a-z\u00e0-\u00ff]+)\s*(?:[.:\-–—]|\.-)?\s*(.*)/i;
+
+// Book/Part patterns
+const BOOK_PATTERN = /^(?:LIVRE|Livre|BOOK|Book)\s+([IVXLCDM]+|\d+(?:\s*(?:er|ER))?|premier|premi[eè]re|PREMIER)\s*(?:[.:\-–—]|\.-)?\s*(.*)/i;
+const PART_PATTERN = /^(?:PARTIE|Partie|PART|Part)\s+([IVXLCDM]+|\d+(?:\s*(?:er|ER))?|premier|premi[eè]re|PREMIER)\s*(?:[.:\-–—]|\.-)?\s*(.*)/i;
+
+// Preambule pattern
+const PREAMBLE_PATTERN = /^(?:PR[EÉ]AMBULE|Pr[eé]ambule)\s*$/i;
 
 function romanToArabic(roman: string): number {
   const values: Record<string, number> = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
@@ -127,7 +146,7 @@ function romanToArabic(roman: string): number {
 function normalizeChapterNumber(raw: string): string {
   const cleaned = raw.trim();
   if (/^[IVXLCDM]+$/i.test(cleaned)) return String(romanToArabic(cleaned));
-  if (/^\d+/.test(cleaned)) return cleaned.replace(/\s*(er|re|\u00e8re)$/i, '');
+  if (/^\d+/.test(cleaned)) return cleaned.replace(/\s*(er|re|ER|RE|[eè]re)$/i, '');
   const ord = parseFrenchOrdinal(cleaned);
   if (ord !== null) return String(ord);
   return cleaned;
@@ -135,8 +154,8 @@ function normalizeChapterNumber(raw: string): string {
 
 function normalizeArticleNumber(raw: string): string {
   const cleaned = raw.trim().toLowerCase();
-  if (cleaned === 'premier' || cleaned === 'premi\u00e8re') return '1';
-  return raw.trim().replace(/\s*(er|re|\u00e8re)$/i, '');
+  if (cleaned === 'premier' || cleaned === 'premi\u00e8re' || cleaned === 'premiere' || cleaned === 'unique') return '1';
+  return raw.trim().replace(/\s*(er|re|ER|RE|[eè]re)$/i, '');
 }
 
 /* ---------- Main parser ---------- */
@@ -146,6 +165,10 @@ export function parseCameroonLawHtml(html: string, act: ActIndexEntry): ParsedAc
   return parseFrenchLawText(text, act);
 }
 
+export function parsePdfText(rawText: string, act: ActIndexEntry): ParsedAct {
+  return parseFrenchLawText(rawText, act);
+}
+
 export function parseFrenchLawText(rawText: string, act: ActIndexEntry): ParsedAct {
   const text = normalizeWhitespace(rawText);
   const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
@@ -153,20 +176,23 @@ export function parseFrenchLawText(rawText: string, act: ActIndexEntry): ParsedA
   const provisions: ParsedProvision[] = [];
   const definitions: ParsedDefinition[] = [];
 
-  let currentChapter: string | undefined;
+  let currentBook: string | undefined;
+  let currentPart: string | undefined;
   let currentTitre: string | undefined;
+  let currentChapter: string | undefined;
   let currentSection: string | undefined;
   let currentArticleNum: string | undefined;
   let currentArticleTitle: string | undefined;
   let currentArticleRef: string | undefined;
   let currentContent: string[] = [];
+  let hasPreamble = false;
 
   const flushArticle = (): void => {
     if (!currentArticleNum || !currentArticleRef) return;
     const content = currentContent.join(' ').trim();
     if (content.length < 3) return;
 
-    const chapterLabel = [currentTitre, currentChapter, currentSection]
+    const chapterLabel = [currentBook, currentPart, currentTitre, currentChapter, currentSection]
       .filter(Boolean)
       .join(' > ') || undefined;
 
@@ -178,28 +204,66 @@ export function parseFrenchLawText(rawText: string, act: ActIndexEntry): ParsedA
       content: content.substring(0, 12000),
     });
 
-    if (/d[e\u00e9]finition|sens\s+d[ue]\s+la\s+pr[e\u00e9]sente|on\s+entend\s+par|au\s+sens\s+d[ue]/i.test(content)) {
+    // Extract definitions from articles that contain definition patterns
+    if (/d[eé]finition|sens\s+d[ue]\s+la\s+pr[eé]sente|on\s+entend\s+par|au\s+sens\s+d[ue]/i.test(content)) {
       extractFrenchDefinitions(content, currentArticleRef, definitions);
     }
   };
 
   for (const line of lines) {
+    // Preamble
+    if (PREAMBLE_PATTERN.test(line)) {
+      flushArticle();
+      currentArticleNum = 'preamble';
+      currentArticleRef = 'preamble';
+      currentArticleTitle = 'Pr\u00e9ambule';
+      currentContent = [];
+      hasPreamble = true;
+      continue;
+    }
+
+    // Book
+    const bookMatch = line.match(BOOK_PATTERN);
+    if (bookMatch) {
+      const num = normalizeChapterNumber(bookMatch[1]);
+      const heading = bookMatch[2]?.trim() ?? '';
+      currentBook = heading ? `Livre ${num} - ${heading}` : `Livre ${num}`;
+      continue;
+    }
+
+    // Part
+    const partMatch = line.match(PART_PATTERN);
+    if (partMatch) {
+      const num = normalizeChapterNumber(partMatch[1]);
+      const heading = partMatch[2]?.trim() ?? '';
+      currentPart = heading ? `Partie ${num} - ${heading}` : `Partie ${num}`;
+      continue;
+    }
+
+    // Titre
     const titreMatch = line.match(TITLE_PATTERN);
     if (titreMatch) {
       const num = normalizeChapterNumber(titreMatch[1]);
       const heading = titreMatch[2]?.trim() ?? '';
       currentTitre = heading ? `Titre ${num} - ${heading}` : `Titre ${num}`;
+      // Reset lower levels
+      currentChapter = undefined;
+      currentSection = undefined;
       continue;
     }
 
+    // Chapter
     const chapterMatch = line.match(CHAPTER_PATTERN);
     if (chapterMatch) {
       const num = normalizeChapterNumber(chapterMatch[1]);
       const heading = chapterMatch[2]?.trim() ?? '';
       currentChapter = heading ? `Chapitre ${num} - ${heading}` : `Chapitre ${num}`;
+      // Reset lower levels
+      currentSection = undefined;
       continue;
     }
 
+    // Section
     const sectionMatch = line.match(SECTION_PATTERN);
     if (sectionMatch) {
       const num = normalizeChapterNumber(sectionMatch[1]);
@@ -208,6 +272,7 @@ export function parseFrenchLawText(rawText: string, act: ActIndexEntry): ParsedA
       continue;
     }
 
+    // Article
     const articleMatch = line.match(ARTICLE_PATTERN);
     if (articleMatch) {
       flushArticle();
@@ -219,12 +284,14 @@ export function parseFrenchLawText(rawText: string, act: ActIndexEntry): ParsedA
         ? `Article ${rawNum} - ${titlePart}`
         : `Article ${rawNum}`;
       currentContent = [];
-      if (titlePart && !CHAPTER_PATTERN.test(titlePart) && !TITLE_PATTERN.test(titlePart)) {
+      // If the article heading line has trailing text that isn't a structural marker, include it
+      if (titlePart && !CHAPTER_PATTERN.test(titlePart) && !TITLE_PATTERN.test(titlePart) && !SECTION_PATTERN.test(titlePart)) {
         currentContent.push(titlePart);
       }
       continue;
     }
 
+    // Content lines
     if (currentArticleNum) {
       currentContent.push(line);
     }
@@ -255,7 +322,8 @@ function extractFrenchDefinitions(
 ): void {
   const seen = new Set(definitions.map(d => d.term.toLowerCase()));
 
-  const quotedPattern = /(?:["\u201c\u00ab])([^"\u201d\u00bb]{2,80})(?:["\u201d\u00bb])\s*(?::|,|:)\s*([^;.]{5,500})/gi;
+  // Quoted term followed by colon or comma and definition
+  const quotedPattern = /(?:["«\u201c])([^"»\u201d]{2,80})(?:["»\u201d])\s*(?::|,|:)\s*([^;.]{5,500})/gi;
   let match: RegExpExecArray | null;
   while ((match = quotedPattern.exec(text)) !== null) {
     const term = match[1].trim();
@@ -267,8 +335,21 @@ function extractFrenchDefinitions(
     }
   }
 
-  const entendPattern = /on\s+entend\s+par\s+(?:["\u201c\u00ab])?([^"\u201d\u00bb,]{2,80})(?:["\u201d\u00bb])?\s*[,:]\s*([^;.]{5,500})/gi;
+  // "on entend par" pattern
+  const entendPattern = /on\s+entend\s+par\s+(?:["«\u201c])?([^"»\u201d,]{2,80})(?:["»\u201d])?\s*[,:]\s*([^;.]{5,500})/gi;
   while ((match = entendPattern.exec(text)) !== null) {
+    const term = match[1].trim();
+    const definition = match[2].trim();
+    const key = term.toLowerCase();
+    if (!seen.has(key) && term.length >= 2 && definition.length >= 5) {
+      seen.add(key);
+      definitions.push({ term, definition, source_provision: sourceProvision });
+    }
+  }
+
+  // "au sens de/du" pattern
+  const auSensPattern = /au\s+sens\s+d[ue]\s+(?:la\s+)?(?:présente|pr[eé]sent)\s+(?:loi|d[eé]cret|ordonnance|acte)[^:]*:\s*(?:["«\u201c])?([^"»\u201d,]{2,80})(?:["»\u201d])?\s*[,:]\s*([^;.]{5,500})/gi;
+  while ((match = auSensPattern.exec(text)) !== null) {
     const term = match[1].trim();
     const definition = match[2].trim();
     const key = term.toLowerCase();

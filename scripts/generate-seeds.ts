@@ -236,6 +236,20 @@ function main(): void {
     const id = titleToId(seed.title);
     const seedFile = path.join(SEED_DIR, `${id}.json`);
 
+    // Do not overwrite PDF-extracted seeds that have more provisions
+    if (fs.existsSync(seedFile)) {
+      try {
+        const existing = JSON.parse(fs.readFileSync(seedFile, 'utf-8'));
+        if ((existing.provisions?.length ?? 0) > seed.provisions.length) {
+          console.log(`  SKIP ${seed.short_name}: existing seed has ${existing.provisions.length} provisions (curated: ${seed.provisions.length})`);
+          totalDocs++;
+          totalProvisions += existing.provisions.length;
+          totalDefinitions += (existing.definitions?.length ?? 0);
+          continue;
+        }
+      } catch { /* parse error — overwrite */ }
+    }
+
     const parsed: ParsedAct = {
       id,
       type: 'statute',
