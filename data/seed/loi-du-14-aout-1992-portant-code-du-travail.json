@@ -1,0 +1,29 @@
+{
+  "id": "loi-du-14-aout-1992-portant-code-du-travail",
+  "type": "statute",
+  "title": "Loi du 14 août 1992 portant Code du Travail",
+  "title_en": "Law of 14 August 1992 - Labor Code",
+  "short_name": "Code du Travail",
+  "status": "in_force",
+  "issued_date": "1992-08-14",
+  "in_force_date": "1992-08-14",
+  "url": "https://www.africa-laws.org/Cameroon.php",
+  "description": "Code du travail du Cameroun",
+  "provisions": [
+    {
+      "provision_ref": "art1",
+      "section": "1",
+      "title": "Article premier - Champ d'application",
+      "chapter": "Titre 1 - Dispositions générales",
+      "content": "La présente loi régit les rapports de travail entre les travailleurs et les employeurs ainsi que entre ces derniers et les apprentis placés sous leur autorité. Est considéré comme travailleur quels que soient son sexe et sa nationalité toute personne qui s'est engagée à mettre son activité professionnelle sous la direction et l'autorité d'une personne physique ou morale moyennant rémunération."
+    },
+    {
+      "provision_ref": "art2",
+      "section": "2",
+      "title": "Article 2 - Non-discrimination",
+      "chapter": "Titre 1 - Dispositions générales",
+      "content": "Le droit au travail est reconnu à chaque citoyen comme un droit fondamental. L'État assure l'égalité de chance et de traitement des citoyens en matière d'emploi et de travail, sans distinction d'origine, de race, de sexe ou de religion."
+    }
+  ],
+  "definitions": []
+}

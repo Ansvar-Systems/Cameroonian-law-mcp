@@ -449,8 +449,8 @@ function buildDatabase(): void {
     insertMeta.run('schema_version', '2');
     insertMeta.run('built_at', new Date().toISOString());
     insertMeta.run('builder', 'build-db.ts');
-    insertMeta.run('jurisdiction', 'KE');
-    insertMeta.run('source', 'minjustice.gov.cm');
+    insertMeta.run('jurisdiction', 'CM');
+    insertMeta.run('source', 'droitcamerounais.info / africa-laws.org');
     insertMeta.run('licence', 'Government Open Data');
   });
   writeMeta();

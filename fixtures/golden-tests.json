@@ -2,6 +2,84 @@
   "$schema": "./golden-tests.schema.json",
   "version": "1.0",
   "mcp_name": "Cameroon Law MCP",
-  "description": "Golden contract tests for the Cameroon Law MCP -- add tests after first ingestion",
-  "tests": []
+  "description": "Golden contract tests for the Cameroon Law MCP -- validates core tool responses against known Cameroonian legislation",
+  "tests": [
+    {
+      "id": "CM-001",
+      "category": "search",
+      "description": "Search for cybersecurity provisions",
+      "tool": "search_legislation",
+      "input": { "query": "cybersecurite informatique" },
+      "assertions": {
+        "result_not_empty": true,
+        "any_result_contains": ["informatique"],
+        "min_results": 1
+      }
+    },
+    {
+      "id": "CM-002",
+      "category": "provision",
+      "description": "Retrieve Article 2 of the Cybersecurity Law (definitions)",
+      "tool": "get_provision",
+      "input": { "document_id": "loi-n-2010-012-du-21-decembre-2010-relative-a-la-cybersecurite-et-la-cybercriminalite-au-cameroun", "article": "2" },
+      "assertions": {
+        "result_not_empty": true,
+        "text_contains": ["cybersécurité", "cybercriminalité"]
+      }
+    },
+    {
+      "id": "CM-003",
+      "category": "search",
+      "description": "Search for consumer protection",
+      "tool": "search_legislation",
+      "input": { "query": "protection consommateur" },
+      "assertions": {
+        "result_not_empty": true,
+        "any_result_contains": ["consommateur"]
+      }
+    },
+    {
+      "id": "CM-004",
+      "category": "provision",
+      "description": "Retrieve Article 38 on personal data protection in telecommunications",
+      "tool": "get_provision",
+      "input": { "document_id": "loi-n-2010-013-du-21-decembre-2010-regissant-les-communications-electroniques-au-cameroun", "article": "38" },
+      "assertions": {
+        "result_not_empty": true,
+        "text_contains": ["confidentialité", "données personnelles"]
+      }
+    },
+    {
+      "id": "CM-005",
+      "category": "search",
+      "description": "Search for electronic commerce provisions",
+      "tool": "search_legislation",
+      "input": { "query": "commerce electronique" },
+      "assertions": {
+        "result_not_empty": true,
+        "any_result_contains": ["électronique"]
+      }
+    },
+    {
+      "id": "CM-006",
+      "category": "sources",
+      "description": "List sources returns jurisdiction info",
+      "tool": "list_sources",
+      "input": {},
+      "assertions": {
+        "result_not_empty": true,
+        "text_not_empty": true
+      }
+    },
+    {
+      "id": "CM-007",
+      "category": "edge_case",
+      "description": "Get provision with non-existent document ID",
+      "tool": "get_provision",
+      "input": { "document_id": "non-existent-law-xyz", "article": "1" },
+      "assertions": {
+        "handles_gracefully": true
+      }
+    }
+  ]
 }

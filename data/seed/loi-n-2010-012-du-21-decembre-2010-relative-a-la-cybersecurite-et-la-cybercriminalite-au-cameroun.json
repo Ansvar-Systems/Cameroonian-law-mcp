@@ -1,0 +1,101 @@
+{
+  "id": "loi-n-2010-012-du-21-decembre-2010-relative-a-la-cybersecurite-et-la-cybercriminalite-au-cameroun",
+  "type": "statute",
+  "title": "Loi N° 2010/012 du 21 décembre 2010 relative à la cybersécurité et la cybercriminalité au Cameroun",
+  "title_en": "Law No. 2010/012 of 21 December 2010 on Cybersecurity and Cybercrime in Cameroon",
+  "short_name": "Loi 2010/012 (Cybersécurité)",
+  "status": "in_force",
+  "issued_date": "2010-12-21",
+  "in_force_date": "2010-12-21",
+  "url": "https://droitcamerounais.info",
+  "description": "Loi camerounaise sur la cybersécurité et la cybercriminalité",
+  "provisions": [
+    {
+      "provision_ref": "art1",
+      "section": "1",
+      "title": "Article premier - Objet",
+      "chapter": "Titre 1 - Dispositions générales",
+      "content": "La présente loi régit le cadre de sécurité des réseaux de communications électroniques et des systèmes d'information, définit et réprime les infractions liées à l'utilisation des technologies de l'information et de la communication au Cameroun."
+    },
+    {
+      "provision_ref": "art2",
+      "section": "2",
+      "title": "Article 2 - Définitions",
+      "chapter": "Titre 1 - Dispositions générales",
+      "content": "Au sens de la présente loi et de ses textes d'application, les définitions ci-après sont admises : « communication électronique » : toute mise à disposition du public ou de catégories de public, par un procédé de télécommunication, de signes, de signaux, d'écrits, d'images, de sons ou de messages de toute nature ; « cybersécurité » : ensemble de mesures de prévention, de protection et de dissuasion d'ordre technique, organisationnel, juridique, financier, humain, procédural et stratégique permettant d'atteindre les objectifs de sécurité appliqués au cyberespace ; « cybercriminalité » : ensemble des infractions pénales qui se commettent au moyen du réseau internet ou d'un système informatique."
+    },
+    {
+      "provision_ref": "art5",
+      "section": "5",
+      "title": "Article 5 - Politique nationale de cybersécurité",
+      "chapter": "Titre 2 - De la cybersécurité",
+      "content": "L'État définit la politique de cybersécurité et veille à sa mise en œuvre. Il peut confier cette mission à un organisme existant ou à créer."
+    },
+    {
+      "provision_ref": "art6",
+      "section": "6",
+      "title": "Article 6 - Audit de sécurité",
+      "chapter": "Titre 2 - De la cybersécurité",
+      "content": "Les opérateurs de réseaux de communications électroniques et les fournisseurs de services sont tenus de procéder à un audit de sécurité obligatoire de leurs systèmes d'information."
+    },
+    {
+      "provision_ref": "art8",
+      "section": "8",
+      "title": "Article 8 - Accès non autorisé",
+      "chapter": "Titre 3 - De la cybercriminalité",
+      "content": "Quiconque accède ou tente d'accéder frauduleusement à tout ou partie d'un système informatique est puni d'un emprisonnement de un à deux ans et d'une amende de 1 000 000 à 10 000 000 de francs CFA."
+    },
+    {
+      "provision_ref": "art9",
+      "section": "9",
+      "title": "Article 9 - Maintien frauduleux",
+      "chapter": "Titre 3 - De la cybercriminalité",
+      "content": "Quiconque se maintient ou tente de se maintenir frauduleusement dans tout ou partie d'un système informatique est puni des mêmes peines que celles prévues à l'article 8."
+    },
+    {
+      "provision_ref": "art10",
+      "section": "10",
+      "title": "Article 10 - Atteinte à l'intégrité des données",
+      "chapter": "Titre 3 - De la cybercriminalité",
+      "content": "Quiconque introduit, modifie, supprime ou rend inopérantes les données dans un système informatique frauduleusement est puni d'un emprisonnement de deux à cinq ans et d'une amende de 5 000 000 à 50 000 000 de francs CFA."
+    },
+    {
+      "provision_ref": "art11",
+      "section": "11",
+      "title": "Article 11 - Interception illicite",
+      "chapter": "Titre 3 - De la cybercriminalité",
+      "content": "Quiconque intercepte frauduleusement par des moyens techniques des données informatiques lors de leur transmission est puni d'un emprisonnement de deux à cinq ans et d'une amende de 5 000 000 à 50 000 000 de francs CFA."
+    },
+    {
+      "provision_ref": "art14",
+      "section": "14",
+      "title": "Article 14 - Usurpation d'identité numérique",
+      "chapter": "Titre 3 - De la cybercriminalité",
+      "content": "Quiconque utilise frauduleusement les éléments d'identification d'une personne physique ou morale par le biais d'un système informatique est puni d'un emprisonnement de deux à cinq ans et d'une amende de 1 000 000 à 5 000 000 de francs CFA."
+    },
+    {
+      "provision_ref": "art25",
+      "section": "25",
+      "title": "Article 25 - Conservation des données",
+      "chapter": "Titre 4 - De la procédure",
+      "content": "Les opérateurs de communications électroniques et les fournisseurs de services sont tenus de conserver les données de connexion et de trafic pendant une durée de dix ans."
+    }
+  ],
+  "definitions": [
+    {
+      "term": "communication électronique",
+      "definition": "toute mise à disposition du public, par un procédé de télécommunication, de signes, de signaux, d'écrits, d'images, de sons ou de messages",
+      "source_provision": "art2"
+    },
+    {
+      "term": "cybersécurité",
+      "definition": "ensemble de mesures de prévention, de protection et de dissuasion permettant d'atteindre les objectifs de sécurité appliqués au cyberespace",
+      "source_provision": "art2"
+    },
+    {
+      "term": "cybercriminalité",
+      "definition": "ensemble des infractions pénales qui se commettent au moyen du réseau internet ou d'un système informatique",
+      "source_provision": "art2"
+    }
+  ]
+}

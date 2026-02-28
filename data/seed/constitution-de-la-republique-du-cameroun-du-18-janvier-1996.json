@@ -1,0 +1,36 @@
+{
+  "id": "constitution-de-la-republique-du-cameroun-du-18-janvier-1996",
+  "type": "statute",
+  "title": "Constitution de la République du Cameroun du 18 janvier 1996",
+  "title_en": "Constitution of the Republic of Cameroon of 18 January 1996",
+  "short_name": "Constitution 1996",
+  "status": "in_force",
+  "issued_date": "1996-01-18",
+  "in_force_date": "1996-01-18",
+  "url": "https://www.prc.cm",
+  "description": "Constitution de la République du Cameroun",
+  "provisions": [
+    {
+      "provision_ref": "art1",
+      "section": "1",
+      "title": "Article premier - République",
+      "chapter": "Préambule et Titre 1",
+      "content": "La République du Cameroun est un État unitaire décentralisé. Elle est une et indivisible, laïque, démocratique et sociale. Elle reconnâit et protège les valeurs traditionnelles conformes aux principes démocratiques, aux droits de l'homme et à la loi."
+    },
+    {
+      "provision_ref": "art26",
+      "section": "26",
+      "title": "Article 26 - Président de la République",
+      "chapter": "Titre 2 - Du pouvoir exécutif",
+      "content": "Le Président de la République est le Chef de l'État. Élu au suffrage universel direct et secret, il est le garant de l'indépendance nationale, de l'intégrité du territoire, de la permanence et de la continuité de l'État, du respect des traités et accords internationaux."
+    },
+    {
+      "provision_ref": "art65",
+      "section": "65",
+      "title": "Article 65 - Bilinguisme",
+      "chapter": "Titre 12 - Des dispositions transitoires et finales",
+      "content": "La République du Cameroun adopte l'anglais et le français comme langues officielles d'égale valeur. L'État garantit la promotion du bilinguisme sur toute l'étendue du territoire."
+    }
+  ],
+  "definitions": []
+}

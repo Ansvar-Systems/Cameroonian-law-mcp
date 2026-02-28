@@ -1,0 +1,36 @@
+{
+  "id": "loi-n-2014-028-du-23-decembre-2014-portant-repression-des-actes-de-terrorisme",
+  "type": "statute",
+  "title": "Loi N° 2014/028 du 23 décembre 2014 portant répression des actes de terrorisme",
+  "title_en": "Law No. 2014/028 of 23 December 2014 on the Suppression of Acts of Terrorism",
+  "short_name": "Loi 2014/028 (Terrorisme)",
+  "status": "in_force",
+  "issued_date": "2014-12-23",
+  "in_force_date": "2014-12-23",
+  "url": "https://droitcamerounais.info",
+  "description": "Loi portant répression des actes de terrorisme au Cameroun",
+  "provisions": [
+    {
+      "provision_ref": "art1",
+      "section": "1",
+      "title": "Article premier - Définition du terrorisme",
+      "chapter": "Chapitre 1 - Dispositions générales",
+      "content": "Constitue un acte de terrorisme tout acte ou menace d'acte susceptible de causer la mort, de mettre en danger l'intégrité physique, de causer des dommages matériels importants, commis dans l'intention d'intimider une population, de contraindre un gouvernement ou une organisation internationale."
+    },
+    {
+      "provision_ref": "art2",
+      "section": "2",
+      "title": "Article 2 - Peine de mort",
+      "chapter": "Chapitre 2 - Des infractions et des peines",
+      "content": "Quiconque commet un acte de terrorisme est puni de la peine de mort."
+    },
+    {
+      "provision_ref": "art5",
+      "section": "5",
+      "title": "Article 5 - Financement du terrorisme",
+      "chapter": "Chapitre 2 - Des infractions et des peines",
+      "content": "Est puni d'un emprisonnement de quinze à vingt ans quiconque fournit ou réunit des fonds dans l'intention de les utiliser ou sachant qu'ils seront utilisés pour commettre un acte de terrorisme."
+    }
+  ],
+  "definitions": []
+}

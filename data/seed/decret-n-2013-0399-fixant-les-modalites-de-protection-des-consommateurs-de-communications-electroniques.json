@@ -1,0 +1,36 @@
+{
+  "id": "decret-n-2013-0399-fixant-les-modalites-de-protection-des-consommateurs-de-communications-electroniques",
+  "type": "statute",
+  "title": "Décret N° 2013/0399 fixant les modalités de protection des consommateurs de communications électroniques",
+  "title_en": "Decree No. 2013/0399 on Protection of Electronic Communications Consumers",
+  "short_name": "Décret 2013/0399",
+  "status": "in_force",
+  "issued_date": "2013-02-27",
+  "in_force_date": "2013-02-27",
+  "url": "https://www.africa-laws.org/Cameroon.php",
+  "description": "Décret fixant les modalités de protection des données des consommateurs de communications électroniques",
+  "provisions": [
+    {
+      "provision_ref": "art1",
+      "section": "1",
+      "title": "Article premier - Objet",
+      "chapter": "Chapitre 1 - Dispositions générales",
+      "content": "Le présent décret fixe les modalités de protection des consommateurs des services de communications électroniques au Cameroun."
+    },
+    {
+      "provision_ref": "art3",
+      "section": "3",
+      "title": "Article 3 - Protection des données",
+      "chapter": "Chapitre 2 - Des obligations des opérateurs",
+      "content": "Les opérateurs de communications électroniques sont tenus de garantir la confidentialité des données personnelles des consommateurs. Ils ne peuvent les utiliser ou les transmettre à des tiers sans le consentement préalable du consommateur."
+    },
+    {
+      "provision_ref": "art5",
+      "section": "5",
+      "title": "Article 5 - Droit d'accès",
+      "chapter": "Chapitre 2 - Des obligations des opérateurs",
+      "content": "Tout consommateur a le droit d'accéder aux données personnelles le concernant détenues par un opérateur et d'en demander la rectification ou la suppression."
+    }
+  ],
+  "definitions": []
+}

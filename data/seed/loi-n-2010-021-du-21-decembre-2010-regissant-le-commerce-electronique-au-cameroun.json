@@ -1,0 +1,54 @@
+{
+  "id": "loi-n-2010-021-du-21-decembre-2010-regissant-le-commerce-electronique-au-cameroun",
+  "type": "statute",
+  "title": "Loi N° 2010/021 du 21 décembre 2010 régissant le commerce électronique au Cameroun",
+  "title_en": "Law No. 2010/021 of 21 December 2010 on Electronic Commerce in Cameroon",
+  "short_name": "Loi 2010/021 (E-Commerce)",
+  "status": "in_force",
+  "issued_date": "2010-12-21",
+  "in_force_date": "2010-12-21",
+  "url": "https://droitcamerounais.info",
+  "description": "Loi régissant le commerce électronique au Cameroun",
+  "provisions": [
+    {
+      "provision_ref": "art1",
+      "section": "1",
+      "title": "Article premier - Objet",
+      "chapter": "Titre 1 - Dispositions générales",
+      "content": "La présente loi régit le commerce électronique au Cameroun. Elle fixe le cadre juridique des transactions commerciales effectuées par voie électronique."
+    },
+    {
+      "provision_ref": "art3",
+      "section": "3",
+      "title": "Article 3 - Définitions",
+      "chapter": "Titre 1 - Dispositions générales",
+      "content": "Au sens de la présente loi : « commerce électronique » désigne l'activité économique par laquelle une personne propose ou assure, par voie électronique, la fourniture de biens ou la prestation de services ; « signature électronique » désigne une donnée qui résulte de l'usage d'un procédé fiable d'identification garantissant son lien avec l'acte auquel elle s'attache."
+    },
+    {
+      "provision_ref": "art5",
+      "section": "5",
+      "title": "Article 5 - Obligations du prestataire",
+      "chapter": "Titre 2 - Des obligations",
+      "content": "Tout prestataire de commerce électronique est tenu de mettre à disposition du public, de manière facile, directe et permanente, les informations suivantes : sa dénomination sociale, son adresse géographique, ses coordonnées, son numéro d'immatriculation."
+    },
+    {
+      "provision_ref": "art10",
+      "section": "10",
+      "title": "Article 10 - Validité des contrats électroniques",
+      "chapter": "Titre 3 - Des contrats électroniques",
+      "content": "La validité d'un contrat ne peut être remise en cause du seul fait qu'il a été conclu par voie électronique. L'écrit sous forme électronique est admis en preuve au même titre que l'écrit sur support papier."
+    }
+  ],
+  "definitions": [
+    {
+      "term": "commerce électronique",
+      "definition": "activité économique par laquelle une personne propose ou assure, par voie électronique, la fourniture de biens ou la prestation de services",
+      "source_provision": "art3"
+    },
+    {
+      "term": "signature électronique",
+      "definition": "donnée qui résulte de l'usage d'un procédé fiable d'identification garantissant son lien avec l'acte auquel elle s'attache",
+      "source_provision": "art3"
+    }
+  ]
+}

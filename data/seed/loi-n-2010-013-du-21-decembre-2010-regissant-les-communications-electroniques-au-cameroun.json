@@ -1,0 +1,43 @@
+{
+  "id": "loi-n-2010-013-du-21-decembre-2010-regissant-les-communications-electroniques-au-cameroun",
+  "type": "statute",
+  "title": "Loi N° 2010/013 du 21 décembre 2010 régissant les communications électroniques au Cameroun",
+  "title_en": "Law No. 2010/013 of 21 December 2010 on Electronic Communications in Cameroon",
+  "short_name": "Loi 2010/013 (Communications)",
+  "status": "in_force",
+  "issued_date": "2010-12-21",
+  "in_force_date": "2010-12-21",
+  "url": "https://droitcamerounais.info",
+  "description": "Loi régissant les communications électroniques au Cameroun",
+  "provisions": [
+    {
+      "provision_ref": "art1",
+      "section": "1",
+      "title": "Article premier - Objet",
+      "chapter": "Titre 1 - Dispositions générales",
+      "content": "La présente loi régit les communications électroniques au Cameroun. Elle fixe le cadre juridique général de l'établissement, de l'exploitation des réseaux et de la fourniture des services de communications électroniques."
+    },
+    {
+      "provision_ref": "art4",
+      "section": "4",
+      "title": "Article 4 - Régulation",
+      "chapter": "Titre 2 - Du cadre institutionnel",
+      "content": "L'Agence de Régulation des Télécommunications (ART) est chargée de la régulation, du contrôle et du suivi des activités des exploitants et opérateurs des réseaux de communications électroniques."
+    },
+    {
+      "provision_ref": "art38",
+      "section": "38",
+      "title": "Article 38 - Protection des données personnelles",
+      "chapter": "Titre 5 - De la protection des usagers",
+      "content": "Les opérateurs de réseaux de communications électroniques et les fournisseurs de services sont tenus d'assurer la confidentialité des communications et la protection des données personnelles de leurs abonnés."
+    },
+    {
+      "provision_ref": "art39",
+      "section": "39",
+      "title": "Article 39 - Secret des correspondances",
+      "chapter": "Titre 5 - De la protection des usagers",
+      "content": "Le secret des correspondances émises par la voie des communications électroniques est garanti par la loi. Toute interception, écoute ou enregistrement des communications privées sans le consentement des parties est interdite."
+    }
+  ],
+  "definitions": []
+}

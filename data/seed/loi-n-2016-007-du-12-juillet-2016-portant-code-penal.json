@@ -1,0 +1,36 @@
+{
+  "id": "loi-n-2016-007-du-12-juillet-2016-portant-code-penal",
+  "type": "statute",
+  "title": "Loi N° 2016/007 du 12 juillet 2016 portant Code pénal",
+  "title_en": "Law No. 2016/007 of 12 July 2016 - Penal Code",
+  "short_name": "Code pénal 2016",
+  "status": "in_force",
+  "issued_date": "2016-07-12",
+  "in_force_date": "2016-07-12",
+  "url": "https://droitcamerounais.info",
+  "description": "Code pénal du Cameroun",
+  "provisions": [
+    {
+      "provision_ref": "art1",
+      "section": "1",
+      "title": "Article premier - Principe de légalité",
+      "chapter": "Livre 1 - Dispositions générales",
+      "content": "Nul ne peut être puni pour un crime, un délit ou une contravention que la loi n'a pas défini et réprimé préalablement à sa commission."
+    },
+    {
+      "provision_ref": "art74",
+      "section": "74",
+      "title": "Article 74 - Corruption active",
+      "chapter": "Livre 2 - Des infractions",
+      "content": "Est puni d'un emprisonnement de cinq à dix ans et d'une amende de 200 000 à 2 000 000 de francs CFA quiconque fait des offres, promesses, dons, présents ou avantages de toute nature à un fonctionnaire ou agent public pour qu'il accomplisse ou s'abstienne d'accomplir un acte de ses fonctions."
+    },
+    {
+      "provision_ref": "art300",
+      "section": "300",
+      "title": "Article 300 - Vol",
+      "chapter": "Livre 3 - Des atteintes aux biens",
+      "content": "Est puni d'un emprisonnement de cinq à dix ans et d'une amende de 100 000 à 1 000 000 de francs CFA quiconque soustrait frauduleusement une chose appartenant à autrui."
+    }
+  ],
+  "definitions": []
+}

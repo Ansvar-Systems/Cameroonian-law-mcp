@@ -1,0 +1,36 @@
+{
+  "id": "loi-cadre-n-2011-012-du-6-mai-2011-relative-a-la-protection-du-consommateur",
+  "type": "statute",
+  "title": "Loi cadre N° 2011/012 du 6 mai 2011 relative à la protection du consommateur",
+  "title_en": "Framework Law No. 2011/012 of 6 May 2011 on Consumer Protection",
+  "short_name": "Loi 2011/012 (Consommateur)",
+  "status": "in_force",
+  "issued_date": "2011-05-06",
+  "in_force_date": "2011-05-06",
+  "url": "https://www.africa-laws.org/Cameroon.php",
+  "description": "Loi cadre relative à la protection du consommateur au Cameroun",
+  "provisions": [
+    {
+      "provision_ref": "art1",
+      "section": "1",
+      "title": "Article premier - Objet",
+      "chapter": "Titre 1 - Dispositions générales",
+      "content": "La présente loi fixe le cadre général de la protection du consommateur au Cameroun. Elle vise à assurer la sécurité, la santé et la protection économique du consommateur."
+    },
+    {
+      "provision_ref": "art3",
+      "section": "3",
+      "title": "Article 3 - Droits du consommateur",
+      "chapter": "Titre 2 - Des droits",
+      "content": "Le consommateur a droit à l'information, à la sécurité, au choix, à l'éducation, à la représentation, à la réparation des préjudices et à un environnement sain."
+    },
+    {
+      "provision_ref": "art5",
+      "section": "5",
+      "title": "Article 5 - Droit à l'information",
+      "chapter": "Titre 2 - Des droits",
+      "content": "Tout consommateur a le droit d'être informé de manière claire et compréhensible sur les produits et services mis à sa disposition."
+    }
+  ],
+  "definitions": []
+}
