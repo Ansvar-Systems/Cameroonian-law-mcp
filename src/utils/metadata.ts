@@ -32,12 +32,12 @@ export function generateResponseMetadata(
   }
 
   return {
-    data_source: 'Cameroon Law (minjustice.gov.cm) — National Council for Law Reporting',
-    jurisdiction: 'KE',
+    data_source: 'Cameroon Law (minjustice.gov.cm / juriafrica.com) — Ministry of Justice of Cameroon',
+    jurisdiction: 'CM',
     disclaimer:
-      'This data is sourced from Cameroon Law under Government Open Data principles. ' +
-      'The authoritative versions are in English. Swahili translations may be available for some documents. ' +
-      'Always verify with the official Cameroon Law portal (minjustice.gov.cm).',
+      'This data is sourced from the Ministry of Justice of Cameroon and juriafrica.com. ' +
+      'The authoritative versions are maintained by the Ministry of Justice (minjustice.gov.cm). ' +
+      'Always verify with the official Cameroon Ministry of Justice portal (minjustice.gov.cm).',
     freshness,
   };
 }
