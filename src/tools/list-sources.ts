@@ -44,15 +44,22 @@ export async function listSources(
     results: {
       sources: [
         {
-          name: 'Cameroon Law',
-          authority: 'National Council for Law Reporting (Cameroon Law)',
-          url: 'http://minjustice.gov.cm',
-          license: 'Government Open Data',
+          name: 'Droit Camerounais',
+          authority: 'droitcamerounais.info',
+          url: 'https://droitcamerounais.info',
+          license: 'Open Access',
           coverage:
-            'All Acts of Parliament (revised edition), subsidiary legislation, ' +
-            'the Constitution of Cameroon (2010), Cameroon Gazette notices, and selected case law ' +
-            'from superior courts including the Supreme Court, Court of Appeal, and High Court',
-          languages: ['en', 'sw'],
+            '25 key Cameroonian laws (cybersecurity, electronic commerce, consumer protection, penal code, constitution)',
+          languages: ['fr', 'en'],
+        },
+        {
+          name: 'Africa Laws - Cameroon',
+          authority: 'Africa Laws (aggregator)',
+          url: 'https://www.africa-laws.org/Cameroon.php',
+          license: 'Open Access',
+          coverage:
+            '45+ Cameroonian laws across banking, commercial, civil, criminal, employment, family, IP, privacy, tax law',
+          languages: ['fr'],
         },
       ],
       database: {

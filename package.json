@@ -2,7 +2,7 @@
   "name": "@ansvar/cameroonian-law-mcp",
   "version": "1.0.0",
   "mcpName": "eu.ansvar/cameroonian-law-mcp",
-  "description": "Cameroon law database -- legislation from minjustice.gov.cm with full-text search, definitions, and EU cross-references",
+  "description": "Cameroon law database -- legislation from droitcamerounais.info and africa-laws.org with full-text search, definitions, and cross-references",
   "author": "Ansvar Systems <hello@ansvar.eu>",
   "license": "Apache-2.0",
   "repository": {
