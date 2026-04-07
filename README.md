@@ -41,12 +41,12 @@ This MCP server makes Cameroonian law **searchable, cross-referenceable, and AI-
 
 > Connect directly to the hosted version -- zero dependencies, nothing to install.
 
-**Endpoint:** `https://cameroonian-law-mcp.vercel.app/mcp`
+**Endpoint:** `https://mcp.ansvar.eu/law-cm/mcp`
 
 | Client | How to Connect |
 |--------|---------------|
 | **Claude.ai** | Settings > Connectors > Add Integration > paste URL |
-| **Claude Code** | `claude mcp add cameroonian-law --transport http https://cameroonian-law-mcp.vercel.app/mcp` |
+| **Claude Code** | `claude mcp add cameroonian-law --transport http https://mcp.ansvar.eu/law-cm/mcp` |
 | **Claude Desktop** | Add to config (see below) |
 | **GitHub Copilot** | Add to VS Code settings (see below) |
 
@@ -57,7 +57,7 @@ This MCP server makes Cameroonian law **searchable, cross-referenceable, and AI-
   "mcpServers": {
     "cameroonian-law": {
       "type": "url",
-      "url": "https://cameroonian-law-mcp.vercel.app/mcp"
+      "url": "https://mcp.ansvar.eu/law-cm/mcp"
     }
   }
 }
@@ -70,7 +70,7 @@ This MCP server makes Cameroonian law **searchable, cross-referenceable, and AI-
   "github.copilot.chat.mcp.servers": {
     "cameroonian-law": {
       "type": "http",
-      "url": "https://cameroonian-law-mcp.vercel.app/mcp"
+      "url": "https://mcp.ansvar.eu/law-cm/mcp"
     }
   }
 }
