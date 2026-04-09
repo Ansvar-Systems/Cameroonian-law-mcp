@@ -32,11 +32,11 @@ export function generateResponseMetadata(
   }
 
   return {
-    data_source: 'Cameroon Law (minjustice.gov.cm / juriafrica.com) — Ministry of Justice of Cameroon',
+    data_source: 'Cameroon Law — droitcamerounais.info (Droit Camerounais) and africa-laws.org (Africa Laws)',
     jurisdiction: 'CM',
     disclaimer:
-      'This data is sourced from the Ministry of Justice of Cameroon and juriafrica.com. ' +
-      'The authoritative versions are maintained by the Ministry of Justice (minjustice.gov.cm). ' +
+      'This data is sourced from droitcamerounais.info and africa-laws.org. ' +
+      'These are open-access Cameroonian legal databases; content may not reflect the most recent amendments. ' +
       'Always verify with the official Cameroon Ministry of Justice portal (minjustice.gov.cm).',
     freshness,
   };
